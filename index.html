@@ -58,7 +58,36 @@ header{height:72px;background:#fff;border-bottom:1px solid #e3e8e3;display:flex;
   <button onclick="clearSchedule()" style="padding:11px 15px;border:1px solid #c88;border-radius:10px;background:#fff5f5;color:#a33;font-weight:700;margin-left:6px">Cancel</button>
   <div id="scheduleMsg" style="margin-top:10px"></div>
 </div>
-<div id="statsBox" style="margin:10px 0;color:#58665f"></div><div id="adminList"></div></div></div></div>
+<div id="statsBox" style="margin:10px 0;color:#58665f"></div>
+<!-- SCHEDULED QUIZ — FIXED / VISIBLE VERSION -->
+<div id="scheduledQuizAdmin" style="margin-top:18px;padding:16px;border:3px solid #2563eb;border-radius:14px;background:#eff6ff;">
+  <div style="font-size:21px;font-weight:800;margin-bottom:6px;">📅 Scheduled Quiz</div>
+  <div style="font-size:13px;margin-bottom:14px;">Create a quiz that opens automatically at the selected time.</div>
+
+  <label style="display:block;font-weight:700;margin:8px 0 5px;">Quiz title</label>
+  <input id="scheduleTitle" type="text" placeholder="Daily PSC Quiz" style="width:100%;box-sizing:border-box;padding:10px;border:1px solid #bbb;border-radius:8px;">
+
+  <label style="display:block;font-weight:700;margin:10px 0 5px;">Start time</label>
+  <input id="scheduleStart" type="datetime-local" style="width:100%;box-sizing:border-box;padding:10px;border:1px solid #bbb;border-radius:8px;">
+
+  <label style="display:block;font-weight:700;margin:10px 0 5px;">Duration (minutes)</label>
+  <input id="scheduleDuration" type="number" min="1" value="30" style="width:100%;box-sizing:border-box;padding:10px;border:1px solid #bbb;border-radius:8px;">
+
+  <label style="display:block;font-weight:700;margin:10px 0 5px;">Number of questions</label>
+  <input id="scheduleCount" type="number" min="1" value="10" style="width:100%;box-sizing:border-box;padding:10px;border:1px solid #bbb;border-radius:8px;">
+
+  <label style="display:block;font-weight:700;margin:10px 0 5px;">Category (optional)</label>
+  <input id="scheduleCategory" type="text" placeholder="Current Affairs" style="width:100%;box-sizing:border-box;padding:10px;border:1px solid #bbb;border-radius:8px;">
+
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;">
+    <button type="button" onclick="saveSchedule()" style="background:#2563eb;color:white;border:0;padding:11px 15px;border-radius:9px;font-weight:800;">Create Schedule</button>
+    <button type="button" onclick="clearSchedule()" style="background:#dc2626;color:white;border:0;padding:11px 15px;border-radius:9px;font-weight:800;">Disable Active Schedule</button>
+  </div>
+
+  <div id="scheduleAdminStatus" style="margin-top:12px;font-size:13px;font-weight:700;"></div>
+</div>
+
+<div id="adminList"></div></div></div></div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
@@ -136,7 +165,17 @@ async function loadStats(){
   const attempts=data||[], total=attempts.reduce((n,x)=>n+1,0), correct=attempts.reduce((n,x)=>n+(x.score||0),0), possible=attempts.reduce((n,x)=>n+(x.total_questions||0),0);
   el.innerHTML=`Attempts: <b>${total}</b> · Answers: <b>${correct}/${possible||0}</b> · Accuracy: <b>${possible?Math.round(correct*100/possible):0}%</b>`;
 }
+
+function updateScheduleAdminStatus(msg, ok=true){
+  const el = document.getElementById("scheduleAdminStatus");
+  if(el){
+    el.textContent = msg || "";
+    el.style.color = ok ? "#166534" : "#b91c1c";
+  }
+}
+
 async function saveSchedule(){
+  updateScheduleAdminStatus("Saving schedule…", true);
   const title=$("scheduleTitle").value.trim()||"Daily PSC Quiz";
   const start=$("scheduleStart").value;
   const duration=parseInt($("scheduleDuration").value||"10",10);
