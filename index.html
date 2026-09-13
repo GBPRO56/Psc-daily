@@ -19,7 +19,7 @@ header{height:72px;background:#fff;border-bottom:1px solid #e3e8e3;display:flex;
 <section class="stats"><div class="stat"><b id="statQuiz">0</b><small>പൂർത്തിയാക്കിയ ക്വിസുകൾ</small></div><div class="stat"><b id="statCorrect">0</b><small>ശരിയുത്തരങ്ങൾ</small></div><div class="stat"><b id="statStreak">1</b><small>ദിവസത്തെ തുടർച്ച</small></div><div class="stat"><b id="statRank">#—</b><small>നിലവിലെ റാങ്ക്</small></div></section>
 
 <section class="section" id="quiz"><div class="head"><div><span class="eyebrow">ഇന്നത്തെ ചലഞ്ച്</span><h2>കറന്റ് അഫയേഴ്സ് ക്വിസ്</h2></div><span class="muted" id="counter">തുടങ്ങാൻ തയ്യാറാണ്</span></div>
-<div class="quiz"><div class="quiztop"><span id="topic">മിശ്ര കറന്റ് അഫയേഴ്സ്</span><span class="timer" id="timer">05:00</span></div><div class="bar"><i id="quizbar"></i></div><h3 id="question">ഇന്നത്തെ ക്വിസ് തുടങ്ങാം എന്ന ബട്ടൺ അമർത്തി ആരംഭിക്കൂ.</h3><div id="options"></div><div class="quizfoot"><span class="muted" id="feedback"></span><button class="btn primary" id="next" disabled>അടുത്തത് →</button></div></div></section>
+<div id="scheduleStatus" style="display:none;margin:12px 0;padding:12px 14px;border-radius:14px;background:#eef8f2;border:1px solid #cfe7d8"></div><div class="quiz"><div class="quiztop"><span id="topic">മിശ്ര കറന്റ് അഫയേഴ്സ്</span><span class="timer" id="timer">05:00</span></div><div class="bar"><i id="quizbar"></i></div><h3 id="question">ഇന്നത്തെ ക്വിസ് തുടങ്ങാം എന്ന ബട്ടൺ അമർത്തി ആരംഭിക്കൂ.</h3><div id="options"></div><div class="quizfoot"><span class="muted" id="feedback"></span><button class="btn primary" id="next" disabled>അടുത്തത് →</button></div></div></section>
 
 <section class="section" id="topics"><div class="head"><div><span class="eyebrow">വിഭാഗങ്ങൾ</span><h2>വിഷയം തിരഞ്ഞെടുക്കൂ</h2></div></div><div class="cards">
 <button class="card topic" onclick="loadTopic('കേരളം')">🌴<b>കേരളം</b><small>സംസ്ഥാന കാര്യങ്ങൾ</small></button><button class="card topic" onclick="loadTopic('ഇന്ത്യ')">🇮🇳<b>ഇന്ത്യ</b><small>ദേശീയ കാര്യങ്ങൾ</small></button><button class="card topic" onclick="loadTopic('ലോകം')">🌍<b>ലോകം</b><small>അന്താരാഷ്ട്ര കാര്യങ്ങൾ</small></button><button class="card topic" onclick="loadTopic('കായികം')">🏅<b>കായികം</b><small>കായിക വാർത്തകൾ</small></button><button class="card topic" onclick="loadTopic('ശാസ്ത്രം')">🔬<b>ശാസ്ത്രം</b><small>ശാസ്ത്രവും സാങ്കേതികവിദ്യയും</small></button><button class="card topic" onclick="loadTopic('പുരസ്കാരങ്ങൾ')">🏆<b>പുരസ്കാരങ്ങൾ</b><small>ബഹുമതികൾ</small></button></div></section>
@@ -32,7 +32,33 @@ header{height:72px;background:#fff;border-bottom:1px solid #e3e8e3;display:flex;
 <div class="modal hidden" id="resultModal"><div class="modalbox" style="text-align:center"><span class="pill">ക്വിസ് പൂർത്തിയായി</span><h2 id="result">0 / 10</h2><p id="resultMsg" class="muted"></p><button class="btn primary" onclick="closeModal('resultModal')">തുടരാം</button></div></div>
 
 <div class="modal hidden" id="adminModal"><div class="modalbox"><span class="pill">ADMIN</span><h2>അഡ്മിൻ പാനൽ</h2><div id="adminLogin"><p class="muted">അഡ്മിൻ അക്കൗണ്ട് ഉപയോഗിച്ച് ലോഗിൻ ചെയ്യുക.</p><div class="field"><label>ഇമെയിൽ</label><input id="adminEmail" type="email"></div><div class="field"><label>പാസ്‌വേഡ്</label><input id="adminPassword" type="password"></div><button class="btn primary" onclick="adminLogin()">അഡ്മിൻ ലോഗിൻ</button><p class="muted" id="adminMsg"></p></div>
-<div id="adminPanel" class="hidden"><div class="adminnav"><button class="btn" onclick="adminLogout()">ലോഗൗട്ട്</button><button class="btn" onclick="closeModal('adminModal')">അടയ്ക്കുക</button></div><div class="field"><label>ചോദ്യം</label><textarea id="aq"></textarea></div><div class="field"><label>ഓപ്ഷൻ A</label><input id="aa"></div><div class="field"><label>ഓപ്ഷൻ B</label><input id="ab"></div><div class="field"><label>ഓപ്ഷൻ C</label><input id="ac"></div><div class="field"><label>ഓപ്ഷൻ D</label><input id="ad"></div><div class="field"><label>ശരിയുത്തരം</label><select id="aans"><option value="0">A</option><option value="1">B</option><option value="2">C</option><option value="3">D</option></select></div><div class="field"><label>വിഭാഗം</label><select id="acat"><option>കേരളം</option><option>ഇന്ത്യ</option><option>ലോകം</option><option>കായികം</option><option>ശാസ്ത്രം</option><option>പുരസ്കാരങ്ങൾ</option><option>സമ്പദ്‌വ്യവസ്ഥ</option></select></div><div class="field"><label>വിശദീകരണം</label><textarea id="aexp"></textarea></div><button class="btn primary" onclick="publishQuestion()">ചോദ്യം പ്രസിദ്ധീകരിക്കുക</button><p class="muted" id="publishMsg"></p><hr><h3>പ്രസിദ്ധീകരിച്ച ചോദ്യങ്ങൾ</h3><div id="adminList"></div></div></div></div>
+<div id="adminPanel" class="hidden"><div class="adminnav"><button class="btn" onclick="adminLogout()">ലോഗൗട്ട്</button><button class="btn" onclick="closeModal('adminModal')">അടയ്ക്കുക</button></div><div class="field"><label>ചോദ്യം</label><textarea id="aq"></textarea></div><div class="field"><label>ഓപ്ഷൻ A</label><input id="aa"></div><div class="field"><label>ഓപ്ഷൻ B</label><input id="ab"></div><div class="field"><label>ഓപ്ഷൻ C</label><input id="ac"></div><div class="field"><label>ഓപ്ഷൻ D</label><input id="ad"></div><div class="field"><label>ശരിയുത്തരം</label><select id="aans"><option value="0">A</option><option value="1">B</option><option value="2">C</option><option value="3">D</option></select></div><div class="field"><label>വിഭാഗം</label><select id="acat"><option>കേരളം</option><option>ഇന്ത്യ</option><option>ലോകം</option><option>കായികം</option><option>ശാസ്ത്രം</option><option>പുരസ്കാരങ്ങൾ</option><option>സമ്പദ്‌വ്യവസ്ഥ</option></select></div><div class="field"><label>വിശദീകരണം</label><textarea id="aexp"></textarea></div><button class="btn primary" onclick="publishQuestion()">ചോദ്യം പ്രസിദ്ധീകരിക്കുക</button><p class="muted" id="publishMsg"></p><hr><h3>പ്രസിദ്ധീകരിച്ച ചോദ്യങ്ങൾ</h3>
+<div class="adminTools" style="margin:16px 0;padding:14px;border:1px solid #dce9e2;border-radius:16px;background:#f8fbf9">
+  <h3 style="margin:0 0 10px">ചോദ്യങ്ങൾ നിയന്ത്രിക്കുക</h3>
+  <input id="adminSearch" placeholder="ചോദ്യം തിരയുക..." oninput="loadAdminList()" style="width:100%;padding:11px;border:1px solid #ddd;border-radius:10px;margin-bottom:10px">
+  <select id="adminDifficulty" onchange="loadAdminList()" style="width:100%;padding:11px;border:1px solid #ddd;border-radius:10px">
+    <option value="">എല്ലാ ബുദ്ധിമുട്ടുകളും</option>
+    <option value="easy">Easy</option><option value="medium">Medium</option><option value="hard">Hard</option>
+  </select>
+</div>
+<div style="margin:16px 0;padding:14px;border:1px solid #dce9e2;border-radius:16px;background:#f8fbf9">
+  <h3 style="margin:0 0 10px">📅 Scheduled Quiz</h3>
+  <p style="margin:0 0 10px;color:#68756f">ഒരു ക്വിസ് തുറക്കേണ്ട തീയതി, സമയം, duration എന്നിവ നിശ്ചയിക്കാം.</p>
+  <label>Quiz title</label>
+  <input id="scheduleTitle" placeholder="Daily PSC Quiz" style="width:100%;padding:10px;margin:5px 0 9px;border:1px solid #ddd;border-radius:10px">
+  <label>Start</label>
+  <input id="scheduleStart" type="datetime-local" style="width:100%;padding:10px;margin:5px 0 9px;border:1px solid #ddd;border-radius:10px">
+  <label>Duration (minutes)</label>
+  <input id="scheduleDuration" type="number" min="1" value="10" style="width:100%;padding:10px;margin:5px 0 9px;border:1px solid #ddd;border-radius:10px">
+  <label>Questions</label>
+  <input id="scheduleCount" type="number" min="1" max="100" value="10" style="width:100%;padding:10px;margin:5px 0 9px;border:1px solid #ddd;border-radius:10px">
+  <label>Category</label>
+  <input id="scheduleCategory" placeholder="Current Affairs" style="width:100%;padding:10px;margin:5px 0 9px;border:1px solid #ddd;border-radius:10px">
+  <button onclick="saveSchedule()" style="padding:11px 15px;border:0;border-radius:10px;background:#14643f;color:white;font-weight:700">Schedule Quiz</button>
+  <button onclick="clearSchedule()" style="padding:11px 15px;border:1px solid #c88;border-radius:10px;background:#fff5f5;color:#a33;font-weight:700;margin-left:6px">Cancel</button>
+  <div id="scheduleMsg" style="margin-top:10px"></div>
+</div>
+<div id="statsBox" style="margin:10px 0;color:#58665f"></div><div id="adminList"></div></div></div></div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
@@ -67,8 +93,65 @@ async function updateStats(){if(!sb)return;let {data:{user}}=await sb.auth.getUs
 async function loadLeader(){if(!sb){$("leader").innerHTML='<div><span>🏆</span><b>ഓൺലൈൻ ലീഡർബോർഡിനായി Supabase ബന്ധിപ്പിക്കുക</b><strong>—</strong></div>';return}let {data,error}=await sb.from("leaderboard").select("display_name,total_score").limit(10);if(error){$("leader").innerHTML='<div><b>ലീഡർബോർഡ് ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.</b></div>';return}$("leader").innerHTML=data.map((x,n)=>`<div><span>${["🥇","🥈","🥉"][n]||n+1}</span><b>${x.display_name||"PSC User"}</b><strong>${x.total_score}</strong></div>`).join("")}
 function openAdmin(){$("adminModal").classList.remove("hidden")}
 async function adminLogin(){if(!sb){$("adminMsg").textContent="ഈ ഫയലിലെ Supabase URL, anon key ചേർക്കുക.";return}let {error}=await sb.auth.signInWithPassword({email:$("adminEmail").value,password:$("adminPassword").value});if(error){$("adminMsg").textContent=error.message;return}let {data:p}=await sb.from("profiles").select("role").eq("id",(await sb.auth.getUser()).data.user.id).single();if(p?.role!=="admin"){await sb.auth.signOut();$("adminMsg").textContent="ഈ അക്കൗണ്ടിന് അഡ്മിൻ അനുമതിയില്ല.";return}$("adminLogin").classList.add("hidden");$("adminPanel").classList.remove("hidden");loadAdminList()}
-async function publishQuestion(){let {data:{user}}=await sb.auth.getUser();if(!user){$("publishMsg").textContent="ആദ്യം അഡ്മിൻ ലോഗിൻ ചെയ്യുക.";return}let opts=[$("aa").value,$("ab").value,$("ac").value,$("ad").value];let {error}=await sb.from("questions").insert({question:$("aq").value,options:opts,correct_index:+$("aans").value,category:$("acat").value,explanation:$("aexp").value,is_published:true});$("publishMsg").textContent=error?error.message:"ചോദ്യം വിജയകരമായി പ്രസിദ്ധീകരിച്ചു!";if(!error){["aq","aa","ab","ac","ad","aexp"].forEach(x=>$(x).value="");loadAdminList()}}
-async function loadAdminList(){let {data,error}=await sb.from("questions").select("id,question,category,created_at").order("created_at",{ascending:false}).limit(50);if(error){$("adminList").textContent=error.message;return}$("adminList").innerHTML=(data||[]).map(x=>`<div class="qitem"><b>${esc(x.question)}</b><br><small>${esc(x.category)}</small><br><button class="deleteBtn" onclick="deleteQuestion('${x.id}')">ചോദ്യം ഡിലീറ്റ് ചെയ്യുക</button></div>`).join("")||"ചോദ്യങ്ങളില്ല."}
+async function publishQuestion(){let {data:{user}}=await sb.auth.getUser();if(!user){$("publishMsg").textContent="ആദ്യം അഡ്മിൻ ലോഗിൻ ചെയ്യുക.";return}let opts=[$("aa").value,$("ab").value,$("ac").value,$("ad").value];let {error}=await sb.from("questions").insert({question:$("aq").value,options:opts,correct_index:+$("aans").value,category:$("acat").value,explanation:$("aexp").value,is_published:true,difficulty:"medium"});$("publishMsg").textContent=error?error.message:"ചോദ്യം വിജയകരമായി പ്രസിദ്ധീകരിച്ചു!";if(!error){["aq","aa","ab","ac","ad","aexp"].forEach(x=>$(x).value="");loadAdminList()}}
+async function loadAdminList(){
+  let query=sb.from("questions").select("id,question,options,correct_index,category,explanation,difficulty,is_published,created_at").order("created_at",{ascending:false}).limit(100);
+  const term=($("adminSearch")?.value||"").trim();
+  const diff=$("adminDifficulty")?.value||"";
+  if(term) query=query.ilike("question","%"+term+"%");
+  if(diff) query=query.eq("difficulty",diff);
+  let {data,error}=await query;
+  if(error){$("adminList").textContent=error.message;return}
+  $("adminList").innerHTML=(data||[]).map(x=>`
+    <div class="qitem" style="margin-bottom:12px;padding:12px;border:1px solid #e4ebe7;border-radius:14px">
+      <b>${esc(x.question)}</b><br>
+      <small>${esc(x.category||"")} · ${esc(x.difficulty||"medium")} · ${x.is_published?"Published":"Draft"}</small>
+      <div style="margin-top:8px">
+        <button onclick="editQuestion('${x.id}')" style="padding:7px 10px;border:1px solid #aaa;border-radius:9px;background:#fff">✏️ Edit</button>
+        <button class="deleteBtn" onclick="deleteQuestion('${x.id}')">🗑️ Delete</button>
+        <button onclick="togglePublish('${x.id}',${!x.is_published})" style="padding:7px 10px;border:1px solid #aaa;border-radius:9px;background:#fff">${x.is_published?"Hide":"Publish"}</button>
+      </div>
+    </div>`).join("")||"ചോദ്യങ്ങളില്ല.";
+}
+async function editQuestion(id){
+  const {data,error}=await sb.from("questions").select("id,question,options,correct_index,category,explanation,difficulty").eq("id",id).single();
+  if(error){$("publishMsg").textContent=error.message;return}
+  const q=prompt("Question",data.question); if(q===null)return;
+  const category=prompt("Category",data.category||"General"); if(category===null)return;
+  const difficulty=prompt("Difficulty: easy / medium / hard",data.difficulty||"medium"); if(difficulty===null)return;
+  const explanation=prompt("Explanation",data.explanation||""); if(explanation===null)return;
+  let {error:e}=await sb.from("questions").update({question:q,category,difficulty: difficulty.toLowerCase(),explanation}).eq("id",id);
+  $("publishMsg").textContent=e?e.message:"ചോദ്യം അപ്ഡേറ്റ് ചെയ്തു.";
+  loadAdminList();loadStats(); loadQuestions();
+}
+async function togglePublish(id,publish){
+  const {error}=await sb.from("questions").update({is_published:publish}).eq("id",id);
+  $("publishMsg").textContent=error?error.message:(publish?"Published":"Hidden");
+  loadAdminList(); loadQuestions();
+}
+async function loadStats(){
+  const {data,error}=await sb.from("attempts").select("score,total_questions");
+  const el=$("statsBox"); if(!el)return;
+  if(error){el.textContent=error.message;return}
+  const attempts=data||[], total=attempts.reduce((n,x)=>n+1,0), correct=attempts.reduce((n,x)=>n+(x.score||0),0), possible=attempts.reduce((n,x)=>n+(x.total_questions||0),0);
+  el.innerHTML=`Attempts: <b>${total}</b> · Answers: <b>${correct}/${possible||0}</b> · Accuracy: <b>${possible?Math.round(correct*100/possible):0}%</b>`;
+}
+async function saveSchedule(){
+  const title=$("scheduleTitle").value.trim()||"Daily PSC Quiz";
+  const start=$("scheduleStart").value;
+  const duration=parseInt($("scheduleDuration").value||"10",10);
+  const count=parseInt($("scheduleCount").value||"10",10);
+  const category=$("scheduleCategory").value.trim()||null;
+  if(!start){$("scheduleMsg").textContent="Start date/time നൽകുക.";return}
+  const startISO=new Date(start).toISOString();
+  const endISO=new Date(new Date(start).getTime()+duration*60000).toISOString();
+  let {error}=await sb.from("quiz_schedules").insert({title,start_at:startISO,end_at:endISO,question_count:count,category,is_active:true});
+  $("scheduleMsg").textContent=error?error.message:"✅ Quiz scheduled successfully.";
+}
+async function clearSchedule(){
+  let {error}=await sb.from("quiz_schedules").update({is_active:false}).eq("is_active",true);
+  $("scheduleMsg").textContent=error?error.message:"Scheduled quiz cancelled.";
+}
 async function deleteQuestion(id){if(!confirm("ഈ ചോദ്യം ഡിലീറ്റ് ചെയ്യണോ?"))return;let {error}=await sb.from("questions").delete().eq("id",id);if(error){$("publishMsg").textContent="ഡിലീറ്റ് ചെയ്യാൻ കഴിഞ്ഞില്ല: "+error.message;return}questions=questions.filter(q=>q[4]!==id);i=0;score=0;$("publishMsg").textContent="ചോദ്യം ഡിലീറ്റ് ചെയ്തു. ഇത് ഇനി പുതിയ ക്വിസ് ചോദ്യങ്ങളിൽ വരില്ല.";loadAdminList();}
 async function adminLogout(){if(sb)await sb.auth.signOut();$("adminPanel").classList.add("hidden");$("adminLogin").classList.remove("hidden")}
 function toggleAuth(){authMode=authMode==="login"?"signup":"login";$("authTitle").textContent=authMode==="login"?"ലോഗിൻ":"അക്കൗണ്ട് സൃഷ്ടിക്കുക";$("authSubmit").textContent=authMode==="login"?"ലോഗിൻ":"സൈൻ അപ്പ്";$("toggleAuth").textContent=authMode==="login"?"പുതിയ അക്കൗണ്ട് സൃഷ്ടിക്കുക":"ഇതിനകം അക്കൗണ്ടുണ്ടോ? ലോഗിൻ"}
@@ -77,4 +160,21 @@ $("authBtn").onclick=()=>{$("authModal").classList.remove("hidden")}
 async function init(){if(sb){await loadQuestions();await loadLeader();updateStats();let {data:{user}}=await sb.auth.getUser();if(user)$("authBtn").textContent="അക്കൗണ്ട്"}else loadLeader();render()}
 function closeModal(id){$(id).classList.add("hidden")}function esc(x){return String(x??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
 init();
-</script></body></html>
+
+async function loadScheduleStatus(){
+  if(!sb || !$("scheduleStatus")) return;
+  const {data,error}=await sb.from("quiz_schedules").select("title,start_at,end_at,question_count,category").eq("is_active",true).order("start_at",{ascending:false}).limit(1);
+  if(error || !data?.length) return;
+  const x=data[0], now=Date.now(), st=new Date(x.start_at).getTime(), en=new Date(x.end_at).getTime();
+  const el=$("scheduleStatus");
+  if(now<st){
+    el.style.display="block";
+    el.innerHTML=`📅 <b>${esc(x.title)}</b><br>ക്വിസ് ആരംഭിക്കുന്നത്: ${new Date(x.start_at).toLocaleString()}<br>${x.question_count} ചോദ്യങ്ങൾ${x.category?" · "+esc(x.category):""}`;
+  }else if(now<=en){
+    el.style.display="block";
+    el.innerHTML=`🟢 <b>${esc(x.title)}</b> — ക്വിസ് ഇപ്പോൾ LIVE ആണ്!<br>${x.question_count} ചോദ്യങ്ങൾ · ${Math.max(1,Math.ceil((en-now)/60000))} മിനിറ്റ് ബാക്കി`;
+  }else{
+    el.style.display="none";
+  }
+}
+</script><script>loadScheduleStatus();setInterval(loadScheduleStatus,30000);</script></body></html>
