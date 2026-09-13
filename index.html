@@ -2,7 +2,7 @@
 <html lang="ml">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PSC Daily — കേരള PSC കറന്റ് അഫയേഴ്സ്</title>
+<title>PSC Daily • Schedule Ready — കേരള PSC കറന്റ് അഫയേഴ്സ്</title>
 <style>
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f4f7f3;color:#14231b;font-family:system-ui,"Noto Sans Malayalam","Nirmala UI",sans-serif}button,input,textarea,select{font:inherit}
 header{height:72px;background:#fff;border-bottom:1px solid #e3e8e3;display:flex;align-items:center;padding:0 6%;gap:12px;position:sticky;top:0;z-index:20}.brand{display:flex;align-items:center;gap:10px;margin-right:auto}.logo{width:42px;height:42px;border-radius:13px;background:#145334;color:#fff;display:grid;place-items:center;font-weight:900;font-size:22px}.brand b{display:block}.brand small{color:#7a847c;font-size:11px}nav{display:flex;gap:20px}nav a{color:#56625a;text-decoration:none;font-size:13px;font-weight:700}.btn{border:1px solid #dce3dc;background:#fff;color:#183c2a;padding:10px 13px;border-radius:10px;font-weight:800;cursor:pointer}.primary{background:#145334;color:#fff;border:0}.hero{max-width:1100px;margin:auto;padding:70px 20px 45px;display:grid;grid-template-columns:1.2fr .8fr;gap:55px;align-items:center}.pill{display:inline-block;background:#e1f1e7;color:#17613c;border-radius:999px;padding:7px 12px;font-size:11px;font-weight:900}.hero h1{font-size:clamp(39px,6vw,67px);line-height:1.1;letter-spacing:-1.5px;margin:17px 0}.hero h1 em{font-style:normal;color:#287b51}.hero p{color:#69746c;line-height:1.8;font-size:16px;max-width:650px}.hero-card{background:#145334;color:white;border-radius:24px;padding:28px;box-shadow:0 20px 50px #14533425}.hero-card h2{font-size:35px;margin:12px 0}.chips{display:flex;flex-wrap:wrap;gap:8px}.chips span{background:#ffffff19;border:1px solid #ffffff18;border-radius:9px;padding:8px 10px;font-size:12px}.stats{max-width:1060px;margin:auto;padding:0 20px 25px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.stat,.card{background:#fff;border:1px solid #e1e7e1;border-radius:16px;padding:18px}.stat b{display:block;font-size:24px}.stat small{color:#788179}.section{max-width:900px;margin:auto;padding:48px 20px}.head{display:flex;justify-content:space-between;align-items:end;margin-bottom:18px}.eyebrow{font-size:11px;letter-spacing:1.4px;color:#287b51;font-weight:900}.head h2{margin:6px 0;font-size:30px}.muted{color:#7b847d;font-size:13px}.quiz{background:#fff;border:1px solid #e0e6e0;border-radius:20px;padding:23px;box-shadow:0 10px 30px #14231b0b}.quiztop{display:flex;justify-content:space-between;color:#69746c;font-size:13px;font-weight:800}.timer{color:#145334}.bar{height:7px;background:#e9eee9;border-radius:9px;margin:17px 0}.bar i{display:block;height:100%;width:0;background:#2d8656;border-radius:9px}.quiz h3{font-size:21px;line-height:1.55;min-height:70px}.option{display:block;width:100%;padding:15px;margin:8px 0;text-align:right;direction:rtl;background:#fbfcfb;border:1px solid #dce3dc;border-radius:11px;cursor:pointer}.option:hover{border-color:#2d8656}.option.correct{background:#e1f5e8;border-color:#42a66a}.option.wrong{background:#fde8e6;border-color:#d45c54}.option:disabled{cursor:default}.quizfoot{display:flex;justify-content:space-between;align-items:center;margin-top:18px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.topic{text-align:right;cursor:pointer}.topic b,.topic small{display:block;margin-top:8px}.topic small{color:#7a837c}.leader div{display:grid;grid-template-columns:45px 1fr auto;padding:16px 20px;border-bottom:1px solid #edf0ed}.leader div:last-child{border:0}.leader{background:#fff;border:1px solid #e1e7e1;border-radius:17px;overflow:hidden}.modal{position:fixed;inset:0;background:#14231b99;display:grid;place-items:center;z-index:60}.hidden{display:none}.modalbox{background:#fff;width:min(94%,470px);max-height:90vh;overflow:auto;border-radius:22px;padding:28px}.modalbox h2{margin:10px 0}.field{margin:12px 0}.field label{display:block;font-weight:800;font-size:13px;margin-bottom:5px}.field input,.field textarea,.field select{width:100%;border:1px solid #dce3dc;border-radius:9px;padding:11px}.field textarea{min-height:80px}.adminnav{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}.deleteBtn{margin-top:8px;border:1px solid #e3b7b7;background:#fff5f5;color:#a33;padding:7px 10px;border-radius:9px;font-weight:700;cursor:pointer}.deleteBtn:active{transform:scale(.98)}.qitem{padding:13px 0;border-bottom:1px solid #edf0ed}.qitem:last-child{border:0}.qitem small{color:#7b847d}footer{text-align:center;color:#7b847d;padding:45px 20px}
@@ -59,33 +59,34 @@ header{height:72px;background:#fff;border-bottom:1px solid #e3e8e3;display:flex;
   <div id="scheduleMsg" style="margin-top:10px"></div>
 </div>
 <div id="statsBox" style="margin:10px 0;color:#58665f"></div>
-<!-- SCHEDULED QUIZ — FIXED / VISIBLE VERSION -->
-<div id="scheduledQuizAdmin" style="margin-top:18px;padding:16px;border:3px solid #2563eb;border-radius:14px;background:#eff6ff;">
-  <div style="font-size:21px;font-weight:800;margin-bottom:6px;">📅 Scheduled Quiz</div>
-  <div style="font-size:13px;margin-bottom:14px;">Create a quiz that opens automatically at the selected time.</div>
 
-  <label style="display:block;font-weight:700;margin:8px 0 5px;">Quiz title</label>
-  <input id="scheduleTitle" type="text" placeholder="Daily PSC Quiz" style="width:100%;box-sizing:border-box;padding:10px;border:1px solid #bbb;border-radius:8px;">
+<!-- SCHEDULED QUIZ: ALWAYS VISIBLE IN ADMIN -->
+<section id="scheduledQuizAdmin" style="display:block!important;visibility:visible!important;position:relative;margin:22px 0;padding:18px;border:4px solid #2563eb;border-radius:16px;background:#eff6ff;box-shadow:0 4px 12px rgba(0,0,0,.08);">
+  <div style="font-size:23px;font-weight:900;color:#1d4ed8;">📅 Scheduled Quiz</div>
+  <div style="margin:6px 0 16px;font-weight:600;">ഇവിടെ നിന്ന് ഒരു നിശ്ചിത സമയത്ത് തുടങ്ങുന്ന Quiz സജ്ജമാക്കാം.</div>
 
-  <label style="display:block;font-weight:700;margin:10px 0 5px;">Start time</label>
-  <input id="scheduleStart" type="datetime-local" style="width:100%;box-sizing:border-box;padding:10px;border:1px solid #bbb;border-radius:8px;">
+  <label style="display:block;font-weight:800;margin:9px 0 5px;">Quiz title</label>
+  <input id="scheduleTitle" type="text" placeholder="Daily PSC Quiz" style="display:block;width:100%;box-sizing:border-box;padding:12px;border:1px solid #aaa;border-radius:9px;background:white;">
 
-  <label style="display:block;font-weight:700;margin:10px 0 5px;">Duration (minutes)</label>
-  <input id="scheduleDuration" type="number" min="1" value="30" style="width:100%;box-sizing:border-box;padding:10px;border:1px solid #bbb;border-radius:8px;">
+  <label style="display:block;font-weight:800;margin:11px 0 5px;">Start time</label>
+  <input id="scheduleStart" type="datetime-local" style="display:block;width:100%;box-sizing:border-box;padding:12px;border:1px solid #aaa;border-radius:9px;background:white;">
 
-  <label style="display:block;font-weight:700;margin:10px 0 5px;">Number of questions</label>
-  <input id="scheduleCount" type="number" min="1" value="10" style="width:100%;box-sizing:border-box;padding:10px;border:1px solid #bbb;border-radius:8px;">
+  <label style="display:block;font-weight:800;margin:11px 0 5px;">Duration (minutes)</label>
+  <input id="scheduleDuration" type="number" min="1" value="30" style="display:block;width:100%;box-sizing:border-box;padding:12px;border:1px solid #aaa;border-radius:9px;background:white;">
 
-  <label style="display:block;font-weight:700;margin:10px 0 5px;">Category (optional)</label>
-  <input id="scheduleCategory" type="text" placeholder="Current Affairs" style="width:100%;box-sizing:border-box;padding:10px;border:1px solid #bbb;border-radius:8px;">
+  <label style="display:block;font-weight:800;margin:11px 0 5px;">Number of questions</label>
+  <input id="scheduleCount" type="number" min="1" value="10" style="display:block;width:100%;box-sizing:border-box;padding:12px;border:1px solid #aaa;border-radius:9px;background:white;">
 
-  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;">
-    <button type="button" onclick="saveSchedule()" style="background:#2563eb;color:white;border:0;padding:11px 15px;border-radius:9px;font-weight:800;">Create Schedule</button>
-    <button type="button" onclick="clearSchedule()" style="background:#dc2626;color:white;border:0;padding:11px 15px;border-radius:9px;font-weight:800;">Disable Active Schedule</button>
+  <label style="display:block;font-weight:800;margin:11px 0 5px;">Category (optional)</label>
+  <input id="scheduleCategory" type="text" placeholder="Current Affairs" style="display:block;width:100%;box-sizing:border-box;padding:12px;border:1px solid #aaa;border-radius:9px;background:white;">
+
+  <div style="display:flex;gap:9px;flex-wrap:wrap;margin-top:16px;">
+    <button type="button" onclick="saveSchedule()" style="background:#2563eb;color:#fff;border:0;border-radius:10px;padding:12px 16px;font-weight:900;font-size:15px;">Create Schedule</button>
+    <button type="button" onclick="clearSchedule()" style="background:#dc2626;color:#fff;border:0;border-radius:10px;padding:12px 16px;font-weight:900;font-size:15px;">Disable Schedule</button>
   </div>
 
-  <div id="scheduleAdminStatus" style="margin-top:12px;font-size:13px;font-weight:700;"></div>
-</div>
+  <div id="scheduleAdminStatus" style="margin-top:13px;font-weight:800;"></div>
+</section>
 
 <div id="adminList"></div></div></div></div>
 
