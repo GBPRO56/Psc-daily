@@ -41,23 +41,6 @@ header{height:72px;background:#fff;border-bottom:1px solid #e3e8e3;display:flex;
     <option value="easy">Easy</option><option value="medium">Medium</option><option value="hard">Hard</option>
   </select>
 </div>
-<div style="margin:16px 0;padding:14px;border:1px solid #dce9e2;border-radius:16px;background:#f8fbf9">
-  <h3 style="margin:0 0 10px">📅 Scheduled Quiz</h3>
-  <p style="margin:0 0 10px;color:#68756f">ഒരു ക്വിസ് തുറക്കേണ്ട തീയതി, സമയം, duration എന്നിവ നിശ്ചയിക്കാം.</p>
-  <label>Quiz title</label>
-  <input id="scheduleTitle" placeholder="Daily PSC Quiz" style="width:100%;padding:10px;margin:5px 0 9px;border:1px solid #ddd;border-radius:10px">
-  <label>Start</label>
-  <input id="scheduleStart" type="datetime-local" style="width:100%;padding:10px;margin:5px 0 9px;border:1px solid #ddd;border-radius:10px">
-  <label>Duration (minutes)</label>
-  <input id="scheduleDuration" type="number" min="1" value="10" style="width:100%;padding:10px;margin:5px 0 9px;border:1px solid #ddd;border-radius:10px">
-  <label>Questions</label>
-  <input id="scheduleCount" type="number" min="1" max="100" value="10" style="width:100%;padding:10px;margin:5px 0 9px;border:1px solid #ddd;border-radius:10px">
-  <label>Category</label>
-  <input id="scheduleCategory" placeholder="Current Affairs" style="width:100%;padding:10px;margin:5px 0 9px;border:1px solid #ddd;border-radius:10px">
-  <button onclick="saveSchedule()" style="padding:11px 15px;border:0;border-radius:10px;background:#14643f;color:white;font-weight:700">Schedule Quiz</button>
-  <button onclick="clearSchedule()" style="padding:11px 15px;border:1px solid #c88;border-radius:10px;background:#fff5f5;color:#a33;font-weight:700;margin-left:6px">Cancel</button>
-  <div id="scheduleMsg" style="margin-top:10px"></div>
-</div>
 <div id="statsBox" style="margin:10px 0;color:#58665f"></div>
 
 <!-- SCHEDULED QUIZ: ALWAYS VISIBLE IN ADMIN -->
